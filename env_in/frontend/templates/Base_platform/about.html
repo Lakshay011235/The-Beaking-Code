@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Env In | About</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }  
+        .img-tag {
+            display:flex;
+            min-width: 400px;
+            align-items: center;
+            justify-content: center;
+            overflow: scroll;
+        } 
+        .site-map-img {
+            width:100%;
+        } 
+    </style>
+</head>
+<body>
+    {% include 'Base_platform/navbar.html' %}
+    <h1>Site Map:-</h1>
+    <div class="img-tag">
+        <img src="{% static '/Images/Untitled.png' %}" class="site-map-img">
+    </div>
+    <div class="details">
+        Insights:-<br>
+        1. Green 4 U:-<br>
+        In this platform our main focus will be on services which are providing
+        the climate tech solutions with Users as companies.<br>
+        Under this we have three sections(for now):-<br>
+        (a). Green Book (a carbon foot print report generator)
+        (b). Green Link (Linking the companies with foreign top market players)<br>
+        (for getting services like Power supply, waste water management, air filters,...)<br>
+        (c). Green Save (Understands you business process and suggest the product by which you reduce carbon emission)
+        <br><br>
+        2. Eco Store:-<br>
+        In this platform we are going to create a dedicated store only for eco-friendly products
+        so that user may not get confused about the product's contribution in saving the environment.
+        Under this we have two sections(for now):-<br>
+        (a). New Store (Managed by Drop shipping at initial stage)<br>
+        (b). Reused Store (Has reused and recycled items via user-user selling and buying).
+        <br><br>
+        3. Eco Info:-<br>
+        Through this platform we can achieve our main goal of creating a eco-friendly and sustainable
+        future by creating awareness among people via Blogs and videos. For those who want to take a step
+        ahead and willing to give ideas for this will reach our community seciton.
+        <br><br>
+        4. Campaigns:-<br>
+        Outreaching of our Saas(Software as a solution) in large scale is mainly done by our Campaigns.
+        Our Campaigns are like plant a tree on earthday, Electricity off(i.e. save as much Electricity as you can),...
+
+    </div>
+</body>
+</html>

@@ -15,13 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from Green_4_U.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',Home,name="Home"),
-    path('green-4-u/', include("Green_4_U.urls")),
-    path('eco-store/',include("Eco_Store.urls")),
-    path('eco-info/',include("Eco_Info.urls")),
-    path('others/',include("Other_platforms.urls")),
+    #main Platform
+    path('',include("Base_platform.urls",namespace="Base_platform")),
+
+    #Sub platforms
+    path('green-4-u/', include("Green_4_U.urls",namespace="Green_4_U")),
+    path('eco-store/',include("Eco_Store.urls",namespace="Eco_Store")),
+    path('eco-info/',include("Eco_Info.urls",namespace="Eco_Info")),
+    path('others/',include("Other_platforms.urls",namespace="Other_platforms")),
 ]

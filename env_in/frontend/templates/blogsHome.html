@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            font-family: "poppins", "sans-serif";
+        }
+
+        .ultraWrapper {
+            display: flex;
+            margin: 80px;
+        }
+
+        .ultraWrapper .left {
+            width: 80%;
+            margin-right: 40px;
+        }
+
+        .ultraWrapper .right {
+            width: 20%;
+            padding: 40px;
+            height: 100vh;
+            background-color: #f7f7f7;
+        }
+
+        .searchBar {
+            border: 1px solid rgb(221, 221, 221);
+            border-radius: 5px;
+        }
+
+        .search {
+            display: flex;
+        }
+
+        .searchBar .search input[type="text"] {
+            width: 100%;
+            padding: 10px 20px;
+            border: none;
+        }
+
+        .searchBar .search button {
+            border: 1px solid #3998a9;
+            background-color: #4bc6dc;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        .searchBar .search button:hover{
+            padding: 10px 20px;
+            background-color: #51d0e7;
+            transition: 0.5s ease-in-out;
+        }
+
+        .blogContainer .blog {
+            margin: 40px 0;
+            padding: 15px;
+            background-color: #f7f7f7;
+            border-radius: 10px;
+        }
+
+        .authorProfile{
+            display: flex;
+            align-items: center;
+        }
+
+        .authorProfile img{
+            margin-right: 15px;
+            border: 1px solid rgb(73, 73, 73);
+            border-radius: 50%;
+            width: 40px;
+        }
+
+        .blogContainer h1,
+        .trendingBlog h1 {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: xx-large;
+            color: rgb(78, 39, 39);
+            margin-bottom: 10px;
+        }
+
+        .blog p{
+            margin: 15px 0;
+        }
+
+        .trendingBlog h3 a {
+            margin: 10px 0;
+            font-weight: 600;
+            color: rgb(70, 70, 70);
+        }
+
+        .underline-effect{
+            display: inline-block;
+            position: relative;
+        }
+
+        .underline-effect:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: rgb(70, 70, 70);
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+
+        .underline-effect:hover:after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        @media  screen and (max-width:700px) {
+            .ultraWrapper{
+                margin: 80px 8px;
+                display: block;
+                font-size: smaller;
+            }
+            .ultraWrapper .left{
+                width: 100%;
+                margin-right: 0;
+            }
+            .ultraWrapper .right{
+                position: relative;
+                width: auto;
+                height: fit-content;
+            }
+            .blogContainer h1, .trendingBlog h1 {
+                font-size: x-large;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ultraWrapper">
+        <div class="left">
+            <section class="searchBar">
+                <div class="search">
+                    <input type="text" name="" id="searchField">
+                    <button for="searchField"><i class="fa fa-search"></i></button>
+                </div>
+            </section>
+            <section class="blogContainer">
+                <div class="blog">
+                    <h1 class="underline-effect" style="cursor: pointer;">Test Heading</h1>
+                    <div class="authorProfile">
+                        <img src="https://c.pxhere.com/photos/08/7a/male_portrait_profile_social_media_cv_young_elegant_suit-459413.jpg!d" alt="PP">
+                        <p>Written by <a href="#" class="underline-effect">John Doe</a></p>
+                    </div>
+                    <p>Lorem ipsum, dolor sit amet consectetur ipsum dol...<a href="#"><small>Read more</small></a></p>
+                    <small>Date: 01-Jan-2022</small>
+                </div>
+                <div class="blog">
+                    <h1 class="underline-effect" style="cursor: pointer;">Test Heading</h1>
+                    <div class="authorProfile">
+                        <img src="https://c.pxhere.com/photos/08/7a/male_portrait_profile_social_media_cv_young_elegant_suit-459413.jpg!d" alt="PP">
+                        <p>Written by <a href="#" class="underline-effect">John Doe</a></p>
+                    </div>
+                    <p>Lorem ipsum, dolor sit amet consectetur ipsum dol...<a href="#"><small>Read more</small></a></p>
+                    <small>Date: 01-Jan-2022</small>
+                </div>
+            </section>
+        </div>
+        <div class="right">
+            <section class="trendingBlog">
+                <h1>Trending Blogs</h1><br>
+                <div class="tBlog">
+                    <h3><a href="#" class="underline-effect">Test Blog 1</a></h3>
+                    <h3><a href="#" class="underline-effect">Test Blog 2</a></h3>
+                    <h3><a href="#" class="underline-effect">Test Blog 3</a></h3>
+                    <h3><a href="#" class="underline-effect">Test Blog 4</a></h3>
+                    <h3><a href="#" class="underline-effect">Test Blog 5</a></h3>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>

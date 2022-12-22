@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f1f1f1;
+        }
+
+        .body {
+            font-family: Trebuchet MS, Charcoal, sans-serif;
+        }
+
+        h1 {
+            /* text-align: center; */
+            margin: 20px 0;
+        }
+
+        .question:hover {
+            font-weight: 600;
+            text-shadow: 2px 2px grey;
+        }
+
+        .content {
+            width: 90%;
+            padding: 20px;
+            margin: 0 auto;
+            padding: 0 60px 0 0;
+        }
+
+        .question {
+            position: relative;
+            background: #52565a;
+            margin: 0;
+            padding: 10px 10px 10px 50px;
+            display: block;
+            width: 100%;
+            cursor: pointer;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .answers {
+            background: rgba(185, 239, 235, 0.116);
+            padding: 0px 15px;
+            margin: 5px 0;
+            height: 0;
+            overflow: hidden;
+            z-index: 15;
+            position: relative;
+            opacity: 0;
+            -webkit-transition: .7s ease;
+            -moz-transition: .7s ease;
+            -o-transition: .7s ease;
+            transition: .7s ease;
+        }
+
+        .questions:checked~.answers {
+            height: auto;
+            opacity: 1;
+            padding: 15px;
+            width: 100%;
+        }
+
+        .plus {
+            position: absolute;
+            color: white;
+            margin: 5px 10px;
+            padding: auto 0;
+            z-index: 15;
+            font-size: 2em;
+            line-height: 100%;
+            -webkit-transition: .3s ease;
+            -moz-transition: .3s ease;
+            -o-transition: .3s ease;
+            transition: .3s ease;
+        }
+
+        .questions:checked~.plus {
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .questions {
+            display: none;
+        }
+
+        .contents {
+            display: flex;
+        }
+
+        .left {
+            width: 400px;
+            color: rgb(30, 25, 25);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-right: 30px;
+            margin-left: 30px;
+        }
+
+        .right {
+            margin: 0 8px 2px 8px;
+        }
+
+        a {
+            text-decoration: none;
+            color: rgb(30, 25, 25);
+        }
+
+        .topic {
+            padding: 10px;
+            margin: 0 8px 2px 8px;
+        }
+
+        .search {
+            width: 100%;
+            position: relative;
+            display: flex;
+        }
+
+        .searchTerm {
+            width: 100%;
+            border-right: none;
+            padding: 5px;
+            height: 36px;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            color: #9DBFAF;
+        }
+
+        .searchTerm:hover {
+            border: 3px solid #5e6161;
+            border-right: none;
+        }
+
+        img {
+            width: 20px;
+        }
+
+        .searchTerm:focus {
+            color: #515858;
+        }
+
+        .searchButton {
+            width: 36px;
+            padding: 0 auto;
+            height: 36px;
+            border: 1px solid #00B4CC;
+            background: #00B4CC;
+            text-align: center;
+            color: #fff;
+            border: 2px rgb(77, 76, 76) solid;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .searchButton:hover {
+            width: 38px;
+        }
+
+        /*Resize the wrap to see the search bar change!*/
+        .wrap {
+            width: 100%;
+            padding-bottom: 20px;
+        }
+
+        @media only screen and (max-width: 680px) {
+
+            .contents {
+                display: block;
+                margin: auto 0;
+            }
+
+            .left {
+                width: 100%;
+                margin: 20px 0;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="contents">
+            <div class="left">
+                <div class="wrap">
+                    <div class="search">
+                        <input type="text" class="searchTerm" placeholder="What are you looking for?">
+                        <button type="submit" class="searchButton">
+                            <img src="search.png" alt="" srcset="">
+                        </button>
+                    </div>
+                </div>
+                <div class="topics">
+                    <a href="#">
+                        <div class="topic">Topic 1</div>
+                    </a>
+                    <a href="#">
+                        <div class="topic">Topic 2</div>
+                    </a>
+                    <a href="#">
+                        <div class="topic">Topic 3</div>
+                    </a>
+                    <a href="#">
+                        <div class="topic">Topic 4</div>
+                    </a>
+                    <a href="#">
+                        <div class="topic">Topic 5</div>
+                    </a>
+                </div>
+            </div>
+            <div class="right">
+                <h1>FAQs</h1>
+                <div>
+                    <input type="checkbox" id="question1" name="q" class="questions">
+                    <div class="plus">+</div>
+                    <div>
+                        <label for="question1" class="question">
+                            This is question no. 1?
+                        </label>
+                    </div>
+                    <div class="answers">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit magnam omnis id sunt cumque harum
+                        vitae minima velit at quod?.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

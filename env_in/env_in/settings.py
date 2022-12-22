@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #apps
+    'Base_platform',
     'Green_4_U',
     'Eco_Info',
     'Eco_Store',
@@ -60,7 +61,7 @@ ROOT_URLCONF = 'env_in.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'frontend/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,6 +76,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'env_in.wsgi.application'
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'Base_platform.User_Details'
+
+LOGIN_URL = '/login/'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -124,6 +130,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+'''
+#For production time.
+# do python manage.py collectstatic       for produciton. 
+STATIC_ROOT = "/var/www.example.com/static"
+'''
+
+STATIC_ROOT = os.path.join(BASE_DIR,"static")
+
+# For multiple static files in different apps
+STATICFILES_DIRS = [
+     os.path.join(BASE_DIR,'frontend/static')
+ ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
