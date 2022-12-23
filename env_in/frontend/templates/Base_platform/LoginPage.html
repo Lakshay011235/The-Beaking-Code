@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/SignUp Page</title>
+    <style>
+        
+.hero{
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background: rgb(55,230,102);
+    background: linear-gradient(90deg, rgba(55,230,102,1) 0%, rgba(55,230,151,1) 50%, rgba(0,255,217,1) 100%);
+    position: absolute;
+}
+
+.form-box{
+    width: 380px;
+    height: 480px;
+    padding-top: 1px;
+    position: relative;
+    margin: 6% auto;
+    background: #fff;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.button-box{
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+}
+
+.toggle-btn{
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+
+}
+
+#btn{
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    border-radius: 20px;
+    background: rgb(55,230,102);
+    background: linear-gradient(90deg, rgba(55,230,102,1) 0%, rgba(55,230,151,1) 50%, rgba(0,255,217,1) 100%);
+    transition: .5s;
+}
+
+.input-group{
+    top: 180px;
+    position: absolute;
+    width: 280px;
+    transition: .5s;
+}
+
+.input-field{
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
+}
+
+.submit-btn{
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;background: rgb(55,230,102);
+    background: linear-gradient(90deg, rgba(55,230,102,1) 0%, rgba(55,230,151,1) 50%, rgba(0,255,217,1) 100%);
+    outline: none;
+    border-radius: 30px;
+}
+
+.check-box{
+    margin: 30px 10px 30px 0;
+}
+
+span{
+    color: #777;
+    font-size: 12px;
+    bottom: 68px;
+    position: absolute;
+}
+
+#login{
+    left: 50px;
+}
+
+#register{
+    left: 450px;
+}
+</style>
+</head>
+<body>
+    <div class="hero">
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+                <button type="button" class="toggle-btn" onclick="register()">Register</button>
+            </div>
+            <form id="login" class="input-group" action="" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="form-type" id="A12" value="Login">
+                <input type="text" class="input-field" placeholder="UserName" name="UserName" required>
+                <input type="password" class="input-field" placeholder="Enter Password" name="Password" required>
+                <input type="checkbox" class="check-box"><span>Remember me</span>
+                <button type="submit" class="submit-btn">Log In</button>
+            </form>
+            <form id="register" class="input-group" action="" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="form-type" id="A12" value="Register">
+                <input type="text" class="input-field" placeholder="User Id" name="UserName" required>
+                <input type="email" class="input-field" placeholder="Email Id" name="Email" required>
+                <input type="password" class="input-field" placeholder="Enter Password" name="Password" required>
+                <input type="checkbox" class="check-box" id="check" onclick="enable()"><span>I agree to the 
+                    <a href="{% url 'Base_platform:Terms' %}" style="text-decoration:none;">terms</a> and 
+                    <a href="{% url 'Base_platform:Conditions' %}"  style="text-decoration:none;">conditions</a></span>
+                <button type="submit" class="submit-btn" id="submit_btn" disabled="true">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        var x= document.getElementById("login");
+        var y= document.getElementById("register");
+        var z= document.getElementById("btn");
+        var elem = document.getElementById('A12');
+        function register(){
+            x.style.left = "-400px";
+            y.style.left = "50px";
+            z.style.left = "110px";
+            elem.value = "Register";
+        }
+
+        function login(){
+            x.style.left = "50px";
+            y.style.left = "450px";
+            z.style.left = "0";
+            elem.value = "Login";
+        }
+
+        function enable(){
+            var check = document.getElementById("check");
+            var submit_btn = document.getElementById("submit_btn");
+            if(check.checked){
+                submit_btn.removeAttribute("disabled");   
+            }   else{
+                submit_btn.disabled = "true";
+            }
+        }
+
+    </script>
+
+</body>
+</html>
